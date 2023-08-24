@@ -1,5 +1,4 @@
-<%@ page import="util.Alpha" %>
-<%@ page import="java.util.Random" trimDirectiveWhitespaces="true"%>
+<%@page import="util.Alpha"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,31 +20,16 @@ h1 {
 <script type="text/javascript">
 	
 	window.onload = function() {
+		let spans = document.querySelectorAll('span');
 		
-		let head1 = document.querySelector('#head1');
-		let head2 = document.querySelector('#head2');
-// 		console.log(head1);
-// 		console.log(head2);
-	let blink1 = true;
-	setInterval(function() {
-		if(blink1)
-			head1.style.visibility = 'hidden';
-		else
-			head1.style.visibility = 'visible';
-		
-		blink1 = !blink1;
-	}, 500);
-	
-	setInterval(function() {
-		if(blink1)
-			head2.style.visibility = 'hidden';
-		else
-			head2.style.visibility = 'visible';
-		
-		blink1 = !blink1;
-	}, 1000);
-	head1.style.visibility = 'hidden';
-	head2.style.visibility = 'hidden';
+		for (let span of spans) {
+			setInterval(function() {
+				if (span.style.visibility == 'hidden')
+					span.style.visibility = 'visible'
+				else
+					span.style.visibility = 'hidden'
+			}, Math.random()*1000 + 300)
+		}
 		
 	}
 	
